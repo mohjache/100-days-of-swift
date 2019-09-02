@@ -40,6 +40,14 @@ class ViewController: UITableViewController {
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let detail = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
+            detail.selectedImage = pictures[indexPath.row]
+            
+            navigationController?.pushViewController(detail, animated: true)
+        }
+    }
 
 }
 
